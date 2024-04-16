@@ -17,7 +17,7 @@ namespace GovtRuleLib
 
         public double EmployeePF(double basicSalary)
         {
-            return 0 * basicSalary;
+            return (12 * basicSalary)/100;
         }
 
         public double GratuityAmount(float serviceCompleted, double basicSalary)
