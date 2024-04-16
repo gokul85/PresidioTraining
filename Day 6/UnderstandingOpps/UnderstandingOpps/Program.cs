@@ -1,6 +1,5 @@
-﻿using RequestTrackerLib;
-using System.Xml.Linq;
-namespace RequestTrack
+﻿using UnderstandingOppsLib;
+namespace UnderstandingOpps
 {
     internal class Program
     {
@@ -14,8 +13,6 @@ namespace RequestTrack
             Console.WriteLine("1. Add Employee");
             Console.WriteLine("2. Print Employees");
             Console.WriteLine("3. Search Employee by ID");
-            Console.WriteLine("4. Update Employee by ID");
-            Console.WriteLine("5. Delete Employee by ID");
             Console.WriteLine("0. Exit");
         }
         void EmployeeInteraction()
@@ -40,12 +37,6 @@ namespace RequestTrack
                     case 3:
                         SearchAndPrintEmployee();
                         break;
-                    case 4:
-                        UpdateEmployee();
-                        break;
-                    case 5:
-                        DeleteEmployee();
-                        break;
                     default:
                         Console.WriteLine("Invalid choice. Try again");
                         break;
@@ -66,6 +57,7 @@ namespace RequestTrack
                     employees[i] = CreateEmployee(i);
                 }
             }
+
         }
         void PrintAllEmployees()
         {
@@ -77,12 +69,23 @@ namespace RequestTrack
             for (int i = 0; i < employees.Length; i++)
             {
                 if (employees[i] != null)
+                {
+                    Company company = new Company();
+                    company.EmployeeClientVisit(employees[i]);
                     PrintEmployee(employees[i]);
+                }
+
             }
         }
         Employee CreateEmployee(int id)
         {
             Employee employee = new Employee();
+            Console.WriteLine("Please enter the type of employee");
+            string type = Console.ReadLine();
+            if (type == "Permanent")
+                employee = new PermanentEmployee();
+            else if (type == "Contract")
+                employee = new ContractEmployee();
             employee.Id = 101 + id;
             employee.BuildEmployeeFromConsole();
             return employee;
@@ -91,7 +94,7 @@ namespace RequestTrack
         void PrintEmployee(Employee employee)
         {
             Console.WriteLine("---------------------------");
-            employee.PrintEmployeeDetails();
+            Console.WriteLine(employee);
             Console.WriteLine("---------------------------");
         }
         int GetIdFromConsole()
@@ -121,7 +124,7 @@ namespace RequestTrack
             Employee employee = null;
             for (int i = 0; i < employees.Length; i++)
             {
-
+                // if ( employees[i].Id == id && employees[i] != null)//Will lead to exception
                 if (employees[i] != null && employees[i].Id == id)
                 {
                     employee = employees[i];
@@ -131,38 +134,13 @@ namespace RequestTrack
             return employee;
         }
 
-        void UpdateEmployee()
-        {
-            int id = GetIdFromConsole();
-            Employee employee = SearchEmployeeById(id);
-            if (employee == null)
-            {
-                Console.WriteLine("No such Employee is present");
-                return;
-            }
-            else 
-            {
-                Console.WriteLine($"Current Employee Name is : {employee.Name}\nPlease Enter the Updated Name");
-                employee.Name = Console.ReadLine() ?? String.Empty;
-            }
-        }
-
-        void DeleteEmployee()
-        {
-            int id = GetIdFromConsole();
-            for(int i = 0;i < employees.Length;i++)
-            {
-                if (employees[i] != null && employees[i].Id == id) {
-                    employees[i] = null;
-                    break;
-                }
-            }
-        }
-
         static void Main(string[] args)
         {
             Program program = new Program();
             program.EmployeeInteraction();
+            //ContractEmployee employee = new ContractEmployee();
+            //employee.BuildEmployeeFromConsole();
+            //Console.WriteLine(employee);
         }
     }
 }
