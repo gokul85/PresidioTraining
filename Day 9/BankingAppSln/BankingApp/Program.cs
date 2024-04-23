@@ -111,7 +111,6 @@ namespace BankingApp
                         Console.WriteLine("Invalid input. Please enter a number.");
                         continue;
                     }
-
                     switch (choice)
                     {
                         case 1:
