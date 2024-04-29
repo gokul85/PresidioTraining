@@ -1,0 +1,13 @@
+Foundation rule
+Rule of Information
+Rule of Guaranteed Access
+Rule of Systematic Null Value Support
+Rule of Active and online relational Catalog
+Rule of Comprehensive Data Sub-language
+Rule of Updating Views
+Rule of Set level insertion, update and deletion
+Rule of Physical Data Independence
+Rule of Logical Data Independence
+Rule of Integrity Independence
+Rule of Distribution Independence
+Rule of Non Subversion
