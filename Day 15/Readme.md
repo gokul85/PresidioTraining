@@ -72,7 +72,7 @@ CREATE TABLE BILLS(
 	CONSTRAINT fk_bill_purchaseid FOREIGN KEY (purchase_id) REFERENCES PURCHASES(purchase_id),
 );
 ```
-
+![](https://github.com/gokul85/PresidioTraining/blob/master/Day%2015/Shop%20Question%201.png)
 
 # Question 2 Movie Rental Store
 ```
@@ -159,3 +159,4 @@ BEGIN
     END
 END;
 ```
+![](https://github.com/gokul85/PresidioTraining/blob/master/Day%2015/Video%20Store%20Database%20Diagram.png)
