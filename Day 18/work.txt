@@ -1,0 +1,6 @@
+customers - c_id, name, email, phone
+products - p_id, name, price, unitavailable, unitsold
+suppliers - sup_id, name
+productsuppliers - p_id, sup_id
+bills - bill_id, c_id, totalamount, purchasedate
+billproducts - bill_id, p_id, unit, price
