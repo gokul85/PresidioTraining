@@ -1,0 +1,28 @@
+User
+ Id
+ username
+ password
+ name
+ email
+ 
+useraccount
+ userid
+ accountno
+
+Account
+ accountno
+ bankid
+ balance
+
+Bank
+ bankid
+ bankname
+ branch
+
+Transaction
+ trans_id
+ sender_acc_no
+ receiver_acc_no
+ date
+ amount
+ 

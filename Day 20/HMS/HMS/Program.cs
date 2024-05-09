@@ -45,7 +45,7 @@ namespace HMS
                 Console.WriteLine($"{doctor.DocId}. {doctor.DocName} ({doctor.Specialization})");
             }
             Console.Write("Enter the number corresponding to the doctor: ");
-            int selectedDoctorIndex = int.Parse(Console.ReadLine()) - 1;
+            int selectedDoctorIndex = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Select a patient:");
             var patients = hmsService.GetAllPatients();
@@ -54,7 +54,7 @@ namespace HMS
                 Console.WriteLine($"{patient.PatientId}. {patient.PatientName}");
             }
             Console.Write("Enter the number corresponding to the patient: ");
-            int selectedPatientIndex = int.Parse(Console.ReadLine()) - 1;
+            int selectedPatientIndex = int.Parse(Console.ReadLine());
 
             Console.Write("Enter appointment date and time (yyyy-mm-dd hh:mm:ss): ");
             DateTime appointmentDateTime = DateTime.Parse(Console.ReadLine());
