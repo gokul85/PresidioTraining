@@ -21,21 +21,22 @@ CREATE PROCEDURE proc_GetTitlesSoldByEmployee
     @EmployeeFName VARCHAR(50)
 AS
 BEGIN
-    SELECT e.fname + ' ' + e.lname 'Employee', title 'Title', t.price 'Price', s.qty 'Quantity', t.price * s.qty 'Total Cost'
+    SELECT e.fname + ' ' + e.lname 'Employee', title 'Title', t.price 'Price', SUM(s.qty) 'Quantity', SUM(t.price * s.qty) 'Total Cost'
 	FROM sales s
 	JOIN titles t ON s.title_id = t.title_id
 	JOIN publishers p ON p.pub_id = t.pub_id
 	JOIN employee e ON e.pub_id = p.pub_id
 	WHERE e.fname = @EmployeeFName
+	GROUP BY e.fname, e.lname, title, t.price
 END
 
-EXECUTE proc_GetTitlesSoldByEmployee 'Paolo';
+EXECUTE proc_GetTitlesSoldByEmployee 'Pedro';
 
 -- 3) Create a query that will print all names from authors and employees
-SELECT au_fname
+SELECT (au_fname +' '+ au_lname) 'Authors & Employees Name'
 FROM authors
 UNION
-SELECT fname
+SELECT (fname + ' ' + lname)
 FROM employee;
 
 
@@ -45,11 +46,13 @@ SELECT TOP 5
     t.title,
     p.pub_name,
     a.au_fname + ' ' + a.au_lname 'AuthorFullName',
-    s.qty,
+    (s.qty) 'Quantity',
     (t.price * s.qty) AS TotalPrice
-FROM Sales s
+FROM sales s
 JOIN titles t ON s.title_id = t.title_id
 JOIN publishers p ON t.pub_id = p.pub_id
 JOIN titleauthor ta ON t.title_id = ta.title_id
 JOIN authors a ON ta.au_id = a.au_id
 ORDER BY TotalPrice DESC;
+GROUP BY title,pub_name,a.au_fname,a.au_lname
+
