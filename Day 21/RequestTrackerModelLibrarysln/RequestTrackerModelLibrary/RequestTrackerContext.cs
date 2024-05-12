@@ -10,7 +10,7 @@ namespace RequestTrackerModelLibrary
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(@"Data Source=G3SLAPTOP\SQLEXPRESS;Integrated Security=true;Initial Catalog=dbEmployeeTrackerCF;");
+			optionsBuilder.UseSqlServer(@"Data Source=C1RBBX3\SQLEXPRESS;Integrated Security=true;Initial Catalog=dbEmployeeTrackerCF;");
 		}
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Request> Requests { get; set; }
