@@ -159,8 +159,6 @@ namespace RequestTrackerFullApp
 
         static async Task RaiseRequest(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine(user.Id);
-            Console.WriteLine("Raising a new request...");
             Console.Write("Enter your request message: ");
             string requestMessage = Console.ReadLine();
             await rtservice.RaiseRequest(requestMessage, user.Id);
@@ -168,7 +166,6 @@ namespace RequestTrackerFullApp
 
         static async Task ViewRequestStatus(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Viewing request status...");
             List<Request> userRequests = await rtservice.GetUserRequestsAsync(user.Id);
             if (userRequests.Count == 0)
             {
@@ -182,6 +179,7 @@ namespace RequestTrackerFullApp
                     Console.WriteLine($"Message: {request.RequestMessage}");
                     Console.WriteLine($"Status: {request.RequestStatus}");
                     Console.WriteLine($"Raised By: {request.RaisedByEmployee.Name}");
+                    Console.WriteLine($"Date Raised: {request.RequestDate}");
                     Console.WriteLine();
                 }
             }
@@ -189,7 +187,6 @@ namespace RequestTrackerFullApp
 
         static async Task ViewSolutions(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Viewing solutions...");
             List<Request> userRequests = await rtservice.GetUserRequestsAsync(user.Id);
             if (userRequests.Count == 0)
             {
@@ -198,7 +195,7 @@ namespace RequestTrackerFullApp
             else
             {
                 foreach (var request in userRequests)
-                {                    
+                {
                     if (request.RequestSolutions == null || request.RequestSolutions.Count == 0)
                     {
                         Console.WriteLine($"No solutions found for Request Number: {request.RequestNumber}");
@@ -212,6 +209,8 @@ namespace RequestTrackerFullApp
                             Console.WriteLine($"Description: {solution.SolutionDescription}");
                             Console.WriteLine($"Solved By: {solution.SolvedByEmployee.Name}");
                             Console.WriteLine($"Solved Date: {solution.SolvedDate}");
+                            Console.WriteLine($"Is Solved: {solution.IsSolved}");
+                            Console.WriteLine($"Request Raiser Comment: {solution.RequestRaiserComment}");
                             Console.WriteLine();
                         }
                     }
@@ -221,7 +220,7 @@ namespace RequestTrackerFullApp
 
         static async Task GiveFeedback(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Giving feedback...");
+            await ViewSolutions(user, rtservice);
             Console.Write("Enter the Solution ID: ");
             int solutionId;
             while (!int.TryParse(Console.ReadLine(), out solutionId))
@@ -242,7 +241,7 @@ namespace RequestTrackerFullApp
 
         static async Task RespondToSolution(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Responding to solution...");
+            await ViewSolutions(user, rtservice);
             Console.Write("Enter the Solution ID: ");
             int solutionId;
             while (!int.TryParse(Console.ReadLine(), out solutionId))
@@ -253,7 +252,7 @@ namespace RequestTrackerFullApp
             string comment = Console.ReadLine();
             try
             {
-                await rtservice.RespondToSolution(solutionId, comment);
+                await rtservice.RespondToSolution(solutionId, comment,user.Id);
                 Console.WriteLine("Response added successfully.");
             }
             catch (Exception ex)
@@ -265,7 +264,6 @@ namespace RequestTrackerFullApp
 
         static async Task ViewAllRequests(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Viewing all requests...");
             try
             {
                 var requests = await rtservice.GetAllRequestsAsync();
@@ -277,7 +275,12 @@ namespace RequestTrackerFullApp
                 {
                     foreach (var request in requests)
                     {
-                        Console.WriteLine($"Request Number: {request.RequestNumber}, Message: {request.RequestMessage}, Status: {request.RequestStatus}");
+                        Console.WriteLine($"Request Number: {request.RequestNumber}");
+                        Console.WriteLine($"Message: {request.RequestMessage}");
+                        Console.WriteLine($"Status: {request.RequestStatus}");
+                        Console.WriteLine($"Raised By: {request.RaisedByEmployee.Name}");
+                        Console.WriteLine($"Date Raised: {request.RequestDate}");
+                        Console.WriteLine();
                     }
                 }
             }
@@ -289,7 +292,6 @@ namespace RequestTrackerFullApp
 
         static async Task ViewAllSolutions(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Viewing all solutions...");
             try
             {
                 var solutions = await rtservice.GetAllSolutionsAsync();
@@ -301,7 +303,14 @@ namespace RequestTrackerFullApp
                 {
                     foreach (var solution in solutions)
                     {
-                        Console.WriteLine($"Solution ID: {solution.SolutionId}, Description: {solution.SolutionDescription}");
+                        Console.WriteLine($"Solution ID: {solution.SolutionId}");
+                        Console.WriteLine($"Description: {solution.SolutionDescription}");
+                        Console.WriteLine($"Request ID: {solution.RequestId}");
+                        Console.WriteLine($"Solved By: {solution.SolvedByEmployee.Name}");
+                        Console.WriteLine($"Solved Date: {solution.SolvedDate}");
+                        Console.WriteLine($"Is Solved: {solution.IsSolved}");
+                        Console.WriteLine($"Request Raiser Comment: {solution.RequestRaiserComment}");
+                        Console.WriteLine();
                     }
                 }
             }
@@ -313,7 +322,6 @@ namespace RequestTrackerFullApp
 
         static async Task ProvideSolution(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Providing solution...");
             try
             {
                 Console.Write("Enter the Request ID: ");
@@ -335,7 +343,6 @@ namespace RequestTrackerFullApp
 
         static async Task MarkRequestAsClosed(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Marking request as closed...");
             try
             {
                 Console.Write("Enter the Request ID: ");
@@ -355,7 +362,6 @@ namespace RequestTrackerFullApp
 
         static async Task ViewFeedbacks(Employee user, RequestTrackerService rtservice)
         {
-            Console.WriteLine("Viewing feedbacks...");
             try
             {
                 var feedbacks = await rtservice.GetFeedbacksForAdminAsync(user.Id);

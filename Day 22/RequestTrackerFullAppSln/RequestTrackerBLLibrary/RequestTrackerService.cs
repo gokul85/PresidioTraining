@@ -47,11 +47,16 @@ namespace RequestTrackerBLLibrary
 
         public async Task GiveFeedback(int solutionid,float rating,string remark,int employeeid)
         {
+            var solution = await _requestSolutionRepository.GetByIdAsync(solutionid);
+            if (solution == null)
+            {
+                throw new InvalidOperationException("Solution not found.");
+            }
             SolutionFeedback feedback = new SolutionFeedback() { SolutionId = solutionid,Rating = rating,Remarks = remark, FeedbackBy = employeeid,FeedbackDate = System.DateTime.Now};
             await _solutionFeedbackRepository.AddAsync(feedback);
         }
 
-        public async Task RespondToSolution(int solutionid,string comment)
+        public async Task RespondToSolution(int solutionid,string comment,int employeeid)
         {
             var solution = await _requestSolutionRepository.GetByIdAsync(solutionid);
             if (solution == null)

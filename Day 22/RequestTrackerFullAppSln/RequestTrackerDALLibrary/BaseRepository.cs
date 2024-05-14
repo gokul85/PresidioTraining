@@ -25,9 +25,9 @@ namespace RequestTrackerDALLibrary
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<List<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        public async Task<List<T>> FindAsync(Expression<Func<T, bool>> func)
         {
-            return await _dbSet.Where(predicate).ToListAsync();
+            return await _dbSet.Where(func).ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
