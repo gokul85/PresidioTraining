@@ -11,7 +11,7 @@ namespace RequestTrackerModelLibrary
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=C1RBBX3\SQLEXPRESS;Integrated Security=true;Initial Catalog=dbRequestTracker;");
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=C1RBBX3\SQLEXPRESS;Integrated Security=true;Initial Catalog=dbRequestTracker;");
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Request> Requests { get; set; }
@@ -66,7 +66,6 @@ namespace RequestTrackerModelLibrary
               .HasForeignKey(sf => sf.FeedbackBy)
               .OnDelete(DeleteBehavior.Restrict)
               .IsRequired();
-
 
         }
     }

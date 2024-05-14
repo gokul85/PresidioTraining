@@ -52,6 +52,10 @@ namespace RequestTrackerBLLibrary
             {
                 throw new InvalidOperationException("Solution not found.");
             }
+            if (solution.RequestRaised.RequestRaisedBy != employeeid)
+            {
+                throw new InvalidOperationException("You are not authorized to this solution");
+            }
             SolutionFeedback feedback = new SolutionFeedback() { SolutionId = solutionid,Rating = rating,Remarks = remark, FeedbackBy = employeeid,FeedbackDate = System.DateTime.Now};
             await _solutionFeedbackRepository.AddAsync(feedback);
         }
@@ -63,11 +67,24 @@ namespace RequestTrackerBLLibrary
             {
                 throw new InvalidOperationException("Solution not found.");
             }
+            if (solution.RequestRaised.RequestRaisedBy != employeeid)
+            {
+                throw new InvalidOperationException("You are not authorized to this solution");
+            }
             solution.RequestRaiserComment = comment;
             await _requestSolutionRepository.UpdateAsync(solution);
         }
 
-        // Admin Actions
+        public async Task CheckSolution(int solutionid)
+        {
+            var solution = await _requestSolutionRepository.GetByIdAsync(solutionid);
+            if (solution == null)
+            {
+                throw new InvalidOperationException("Solution not found.");
+            }
+        }
+
+            // Admin Actions
         public async Task<List<Request>> GetAllRequestsAsync()
         {
             return await _requestRepository.GetAllAsync();

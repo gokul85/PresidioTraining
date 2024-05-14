@@ -15,9 +15,10 @@
         {
             return this.Password == password;
         }
-        public ICollection<Request> RequestsRaised { get; set; }//No effect on the table
-        public ICollection<Request> RequestsClosed { get; set; }//No effect on the table
-        public ICollection<RequestSolution> SolutionsProvided { get; set; }
-        public ICollection<SolutionFeedback> FeedbacksGiven { get; set; }
+        public virtual ICollection<Request> RequestsRaised { get; set; }
+        public virtual ICollection<Request> RequestsClosed { get; set; }
+        public virtual ICollection<RequestSolution> SolutionsProvided { get; set; }
+        public virtual ICollection<SolutionFeedback> FeedbacksGiven { get; set; }
+
     }
 }

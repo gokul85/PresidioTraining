@@ -19,13 +19,13 @@ namespace RequestTrackerModelLibrary
 
         public int RequestRaisedBy { get; set; }
 
-        public Employee RaisedByEmployee { get; set; }
+        public virtual Employee RaisedByEmployee { get; set; }
 
         public int? RequestClosedBy { get; set; }
 
 
-        public Employee RequestClosedByEmployee { get; set; }
+        public virtual Employee RequestClosedByEmployee { get; set; }
 
-        public ICollection<RequestSolution> RequestSolutions { get; set; }
+        public virtual ICollection<RequestSolution> RequestSolutions { get; set; }
     }
 }

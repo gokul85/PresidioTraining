@@ -220,38 +220,47 @@ namespace RequestTrackerFullApp
 
         static async Task GiveFeedback(Employee user, RequestTrackerService rtservice)
         {
-            await ViewSolutions(user, rtservice);
-            Console.Write("Enter the Solution ID: ");
-            int solutionId;
-            while (!int.TryParse(Console.ReadLine(), out solutionId))
+            try
             {
-                Console.WriteLine("Invalid input. Please enter a valid Solution ID: ");
+                await ViewSolutions(user, rtservice);
+                Console.Write("Enter the Solution ID: ");
+                int solutionId;
+                while (!int.TryParse(Console.ReadLine(), out solutionId))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid Solution ID: ");
+                }
+                await rtservice.CheckSolution(solutionId);
+                Console.Write("Enter your rating (1-5 stars): ");
+                float rating;
+                while (!float.TryParse(Console.ReadLine(), out rating) || rating < 1 || rating > 5)
+                {
+                    Console.WriteLine("Invalid input. Please enter a rating between 1 and 5: ");
+                }
+                Console.Write("Enter your remarks (optional): ");
+                string remarks = Console.ReadLine();
+                await rtservice.GiveFeedback(solutionId, rating, remarks, user.Id);
+                Console.WriteLine("Feedback submitted successfully!");
             }
-            Console.Write("Enter your rating (1-5 stars): ");
-            float rating;
-            while (!float.TryParse(Console.ReadLine(), out rating) || rating < 1 || rating > 5)
+            catch (Exception ex)
             {
-                Console.WriteLine("Invalid input. Please enter a rating between 1 and 5: ");
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
-            Console.Write("Enter your remarks (optional): ");
-            string remarks = Console.ReadLine();
-            await rtservice.GiveFeedback(solutionId,rating,remarks,user.Id);
-            Console.WriteLine("Feedback submitted successfully!");
         }
 
         static async Task RespondToSolution(Employee user, RequestTrackerService rtservice)
         {
-            await ViewSolutions(user, rtservice);
-            Console.Write("Enter the Solution ID: ");
-            int solutionId;
-            while (!int.TryParse(Console.ReadLine(), out solutionId))
-            {
-                Console.WriteLine("Invalid input. Please enter a valid Solution ID: ");
-            }
-            Console.Write("Enter your comment: ");
-            string comment = Console.ReadLine();
             try
             {
+                await ViewSolutions(user, rtservice);
+                Console.Write("Enter the Solution ID: ");
+                int solutionId;
+                while (!int.TryParse(Console.ReadLine(), out solutionId))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid Solution ID: ");
+                }
+                await rtservice.CheckSolution(solutionId);
+                Console.Write("Enter your comment: ");
+                string comment = Console.ReadLine();
                 await rtservice.RespondToSolution(solutionId, comment,user.Id);
                 Console.WriteLine("Response added successfully.");
             }
