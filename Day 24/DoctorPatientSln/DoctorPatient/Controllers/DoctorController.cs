@@ -17,7 +17,7 @@ namespace DoctorPatient.Controllers
         }
 
         [HttpGet]
-        public async Task<IList<Doctor>> GetAllDoctors()
+        public async Task<IList<Doctor>> Get()
         {
             var doctors = await _doctorServices.GetDoctors();
             return doctors.ToList();
@@ -39,14 +39,14 @@ namespace DoctorPatient.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<Doctor>> GetDoctorBySpecilization([FromBody] string specialization)
+        public async Task<ActionResult<Doctor>> Post([FromBody] string specialization)
         {
             try
             {
                 var employee = await _doctorServices.GetDoctorBySpecilization(specialization);
                 return Ok(employee);
             }
-            catch (NoSuchDoctorFoundException ex)
+            catch (NoDoctorsFoundException ex)
             {
                 return NotFound(ex.Message);
             }
