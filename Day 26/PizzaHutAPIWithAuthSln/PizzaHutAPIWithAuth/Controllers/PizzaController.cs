@@ -32,5 +32,43 @@ namespace PizzaHutAPIWithAuth.Controllers
                 return NotFound(new ErrorModel(404, ex.Message));
             }
         }
+
+        [Authorize(Policy = "AdminPolicy")]
+        [Route("DeletePizza")]
+        [HttpDelete]
+        [ProducesResponseType(typeof(Pizza), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status404NotFound)]
+        [ProducesErrorResponseType(typeof(ErrorModel))]
+        public async Task<ActionResult<Pizza>> Delete(int pizzaid)
+        {
+            try
+            {
+                var pizza = await pizzaServices.DeletePizzaAsync(pizzaid);
+                return Ok(pizza);
+            }
+            catch (PizzaNotFoundException ex)
+            {
+                return NotFound(new ErrorModel(404, ex.Message));
+            }
+        }
+
+        [Authorize(Policy = "AdminPolicy")]
+        [Route("AddPizza")]
+        [HttpPost]
+        [ProducesResponseType(typeof(Pizza), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status404NotFound)]
+        [ProducesErrorResponseType(typeof(ErrorModel))]
+        public async Task<ActionResult<Pizza>> Post(Pizza pizza)
+        {
+            try
+            {
+                var pizzas = await pizzaServices.AddPizzaAsync(pizza);
+                return Ok(pizzas);
+            }
+            catch (NoPizzasFoundException ex)
+            {
+                return NotFound(new ErrorModel(404, ex.Message));
+            }
+        }
     }
 }

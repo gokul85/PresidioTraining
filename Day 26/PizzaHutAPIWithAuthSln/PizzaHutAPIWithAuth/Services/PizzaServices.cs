@@ -12,14 +12,23 @@ namespace PizzaHutAPIWithAuth.Services
         {
             _pizzarepo = pizzarepo;            
         }
-        public Task<Pizza> AddPizzaAsync(string pizzaname, decimal price, int stocks, string desc)
+        public async Task<Pizza> AddPizzaAsync(Pizza pizza)
         {
-            throw new NotImplementedException();
+            await _pizzarepo.Add(pizza);
+            return pizza;
         }
 
-        public Task<Pizza> DeletePizzaAsync(int pizzaid)
+        public async Task<Pizza> DeletePizzaAsync(int pizzaid)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var pizza = await _pizzarepo.Get(pizzaid);
+                await _pizzarepo.Delete(pizzaid);
+                return pizza;
+            } catch (Exception ex) {
+                throw new PizzaNotFoundException("No Pizza Found");
+            }
+            
         }
 
         public async Task<List<Pizza>> GetAllPizzaAsync()

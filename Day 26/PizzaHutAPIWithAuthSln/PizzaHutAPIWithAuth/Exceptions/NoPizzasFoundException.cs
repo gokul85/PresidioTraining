@@ -2,23 +2,17 @@
 
 namespace PizzaHutAPIWithAuth.Exceptions
 {
-    [Serializable]
     internal class NoPizzasFoundException : Exception
     {
+        string msg;
         public NoPizzasFoundException()
         {
+            msg = "No Pizzas Found Exception";
         }
-
-        public NoPizzasFoundException(string? message) : base(message)
+        public NoPizzasFoundException(string msge)
         {
+            msg = msge;
         }
-
-        public NoPizzasFoundException(string? message, Exception? innerException) : base(message, innerException)
-        {
-        }
-
-        protected NoPizzasFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        public override string Message => msg;
     }
 }
