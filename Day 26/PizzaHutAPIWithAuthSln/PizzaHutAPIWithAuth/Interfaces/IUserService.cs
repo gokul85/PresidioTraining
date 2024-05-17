@@ -7,5 +7,6 @@ namespace PizzaHutAPIWithAuth.Interfaces
     {
         public Task<LoginReturnDTO> Login(UserLoginDTO userLoginDTO);
         public Task<User> Register(UserRegisterDTO userRegisterDTO);
+        public Task<string> UpdateUserStatus(UserUpdateStatusDTO userUpdateStatusDTO);
     }
 }

@@ -108,5 +108,17 @@ namespace PizzaHutAPIWithAuth.Services
             ud.Status = "Disabled";
             return ud;
         }
+
+        public async Task<string> UpdateUserStatus(UserUpdateStatusDTO userUpdateStatusDTO)
+        {
+            UserDetails ud = await _userdetailsRepo.Get(userUpdateStatusDTO.UserId);
+            if(ud != null)
+            {
+                ud.Status = userUpdateStatusDTO.Status;
+                await _userdetailsRepo.Update(ud);
+                return "User Status Successfully Updated";
+            }
+            throw new UserNotFoundException("User Details Not Found");
+        }
     }
 }

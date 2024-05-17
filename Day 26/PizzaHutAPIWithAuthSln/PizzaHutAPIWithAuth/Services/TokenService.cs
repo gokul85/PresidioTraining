@@ -23,7 +23,7 @@ namespace PizzaHutAPIWithAuth.Services
             var claim = new List<Claim>()
             {
                 new Claim("uid",user.Id.ToString()),
-                new Claim("urole",user.Role)
+                new Claim(ClaimTypes.Role,user.Role),
             };
             var credentials = new SigningCredentials(_key,SecurityAlgorithms.HmacSha256);
             var myToken = new JwtSecurityToken(null, null, claim, expires: DateTime.Now.AddDays(2), signingCredentials: credentials);

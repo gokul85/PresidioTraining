@@ -33,7 +33,7 @@ namespace PizzaHutAPIWithAuth.Controllers
             }
         }
 
-        [Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
         [Route("DeletePizza")]
         [HttpDelete]
         [ProducesResponseType(typeof(Pizza), StatusCodes.Status200OK)]
@@ -52,7 +52,8 @@ namespace PizzaHutAPIWithAuth.Controllers
             }
         }
 
-        [Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
+        //[Authorize(Policy = "AdminPolicy")]
         [Route("AddPizza")]
         [HttpPost]
         [ProducesResponseType(typeof(Pizza), StatusCodes.Status200OK)]

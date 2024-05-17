@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PizzaHutAPIWithAuth.Interfaces;
-using PizzaHutAPIWithAuth.Models.DTOs;
-using PizzaHutAPIWithAuth.Models;
+﻿using EmployeeRequestTrackerAPI.Interfaces;
+using EmployeeRequestTrackerAPI.Models;
+using EmployeeRequestTrackerAPI.Models.DTOs;
+using EmployeeRequestTrackerAPI.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace PizzaHutAPIWithAuth.Controllers
+namespace EmployeeRequestTrackerAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,7 +18,7 @@ namespace PizzaHutAPIWithAuth.Controllers
             _userService = userService;
         }
         [HttpPost("Login")]
-        [ProducesResponseType(typeof(LoginReturnDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(LoginReturnDTO),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<LoginReturnDTO>> Login(UserLoginDTO userLoginDTO)
         {
@@ -31,13 +33,13 @@ namespace PizzaHutAPIWithAuth.Controllers
             }
         }
         [HttpPost("Register")]
-        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Employee), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorModel), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<User>> Register(UserRegisterDTO userDTO)
+        public async Task<ActionResult<Employee>> Register(EmployeeUserDTO userDTO)
         {
             try
             {
-                User result = await _userService.Register(userDTO);
+                Employee result = await _userService.Register(userDTO);
                 return Ok(result);
             }
             catch (Exception ex)
