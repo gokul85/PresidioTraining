@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+
+        .marksheet {
+            width: 800px;
+            background: white;
+            border: 6px double red;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            width: 100%;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .details td {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .semesters {
+            text-align: left;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .marks {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .marks th,
+        .marks td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .marks thead {
+            background-color: #f2f2f2;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 14px;
+        }
+
+        .total p {
+            margin: 0;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .result p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .summary {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .summary td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .date-signature {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .date-signature p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="marksheet">
+        <div class="content">
+            <h1 style="font-size: 48px;color: rgb(0, 0, 156)">ABC UNIVERSITY</h1>
+            <h2>STATEMENT OF MARKS</h2>
+            <h3 style="color: rgb(0, 0, 156);">BE CSE</h3>
+            <table class="details">
+                <tr>
+                    <td>Name : Gokul K</td>
+                    <td>Admission No : 123456</td>
+                </tr>
+                <tr>
+                    <td>Father's Name : Kumar G</td>
+                    <td>Year / Semester : 4th & 7 Semester</td>
+                </tr>
+                <tr>
+                    <td>Regn. No. : 20CECS014</td>
+                    <td>Month & Year of Exam : Nov/Dec 2024</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
