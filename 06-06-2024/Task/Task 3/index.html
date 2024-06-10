@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container left-space-container mt-3 mb-3">
+        <div class="col">
+            <div class="row top-bar align-items-center">
+                <div class="col-md-4 d-flex align-items-center mt-2">
+                    <span class="fas fa-filter text-black me-2"
+                        style="border-radius: 4px; padding: 10px; box-shadow: 0 0 10px rgba(72, 71, 71, 0.2);"></span>
+                    <div class="input-group">
+                        <span class="input-group-text" style="background-color: #fff; border: 1px solid #ced4da;"><i
+                                class="fas fa-search text-muted"></i></span>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="col-md-8 d-flex justify-content-end mt-2">
+                    <button class="btn" style="background: #2264E5; color: white;">+ Add customer</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="table-responsive transparent-background" style="max-height: 700px; overflow-y: auto;">
+                    <table class="table table-hover table-striped">
+                        <thead style="position: sticky; top: 0; z-index: 999; ">
+                            <tr
+                                style="font-family: 'Inter', sans-serif; letter-spacing: 2%; font-size: 12px; font-weight: 500;">
+                            <tr
+                                style="font-family: 'Inter', sans-serif; letter-spacing: 2%; font-size: 12px; font-weight: 500;">
+                                <td scope="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td scope="col" style="font-weight:500 !important; color: black !important;">#<i
+                                        class="fa fa-fw fa-sort"></i></td>
+                                <td scope="col">NAME <i class="fa fa-fw fa-sort"></i></td>
+                                <td scope="col">DESCRIPTION</td>
+                                <td scope="col">STATUS<i class="fa fa-fw fa-sort"></i></td>
+                                <td scope="col" class="align-right">RATE</td>
+                                <td scope="col" class="align-right">BALANCE</td>
+                                <td scope="col" class="align-right">DEPOSIT</td>
+                                <td scope="col" class="align-right"></td>
+                            </tr>
+                        </thead>
+
+                        <tbody
+                            style="font-family: 'Inter', sans-serif; letter-spacing: 2%; font-size: 14px; font-weight: 400;">
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">1</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Ann Culhane</div>
+                                    <div class="mobile-number">5684236526</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet,<br /> consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500; color: black !important;">2</td>
+                                <td>
+                                    <div style="font-weight:500 !important; color: black !important;">Ahmad Rosser</div>
+                                    <div class="mobile-number">5684236527</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet,<br /> consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-paid">Paid</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;">$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">3</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Zain Calzoni</div>
+                                    <div class="mobile-number">5684236528</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet,<br /> consectetur adipiscing elit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;">-$20.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">4</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Leo Stanton</div>
+                                    <div class="mobile-number">5684236529</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-inactive">Inactive</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;;">$600.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">5</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Kaiya Vetrovs</div>
+                                    <div class="mobile-number">5684236530</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet,<br /> consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$350.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">6</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Ryan Westervelt</div>
+                                    <div class="mobile-number">5684236531</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-paid">Paid</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">7</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Corey Stanton</div>
+                                    <div class="mobile-number">5684236532</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-due">Due</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;;">$30.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">8</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Adison Aminoff</div>
+                                    <div class="mobile-number">5684236533</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">9</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Alfredo Aminoff</div>
+                                    <div class="mobile-number">5684236534</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-inactive">Inactive</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;;">$460.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">10</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Allison Botosh</div>
+                                    <div class="mobile-number">5684236535</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$0.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">11</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Tatiana Mango</div>
+                                    <div class="mobile-number">5684236536</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-paid">Paid</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">12</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Phillip Stanton</div>
+                                    <div class="mobile-number">5684236537</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">13</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Craig Lipshutz</div>
+                                    <div class="mobile-number">5684236538</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-due">Due</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$20.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">14</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Wilson Dorwart</div>
+                                    <div class="mobile-number">5684236539</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-paid">Paid</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;;">$600.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">15</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Zain Lubin</div>
+                                    <div class="mobile-number">5684236540</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$350.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">16</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Abram Bothman Stanton</div>
+                                    <div class="mobile-number">5684236541</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-inactive">Inactive</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">17</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Omar Levin</div>
+                                    <div class="mobile-number">5684236542</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-paid">Paid</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;">$30.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">18</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Haylie Donin</div>
+                                    <div class="mobile-number">5684236543</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #D12953;;">-$270.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">19</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Brandon Dokidis</div>
+                                    <div class="mobile-number">5684236544</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-paid">Paid</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right" style="color: #14804A;">$460.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    </div>
+                                </td>
+                                <td style="font-weight:500 !important; color: black !important;">20</td>
+                                <td>
+                                    <div style="font-weight:500; color: black !important;">Wilson Vetrovs</div>
+                                    <div class="mobile-number">5684236545</div>
+                                </td>
+                                <td>Lorem ipsum dolor sit amet, <br />consectetur adipiscing eit. Nulla...</td>
+                                <td>
+                                    <div class="status-open">Open</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$70.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$0.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="align-right">$500.00</div>
+                                    <div class="text-muted align-right" style="font-size: 12px">CAD</div>
+                                </td>
+                                <td>
+                                    <div class="dropstart">
+                                        <button class="btn btn-link dropstart-toggle" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="fa fa-ellipsis-v"
+                                                style="font-size: 16px; color: #6c757d; "></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end"
+                                            aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">View<i class="fas fa-info-circle"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    href="#">Edit<i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                    style="color: red;" href="#">Delete<i
+                                                        class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="9">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>10 of 100</div>
+                                        <div class="d-flex align-items-center">
+                                            <div>Rows Per Page:&nbsp;</div>
+                                            <div class="dropdown">
+                                                <span class="dropdown-toggle" id="rowsPerPageDropdown" role="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    10 <i class="fas fa-chevron-down" style="font-size: 0.8em;"></i>
+                                                </span>
+                                                <ul class="dropdown-menu" aria-labelledby="rowsPerPageDropdown"
+                                                    style="min-width: auto; color: black; font-size: 1em;">
+                                                    <li><a class="dropdown-item" href="#" data-value="10">10</a></li>
+                                                    <li><a class="dropdown-item" href="#" data-value="20">20</a></li>
+                                                    <li><a class="dropdown-item" href="#" data-value="30">30</a></li>
+                                                    <li><a class="dropdown-item" href="#" data-value="40">40</a></li>
+                                                </ul>
+                                            </div>
+                                            <nav aria-label="Pagination" class="ms-4">
+                                                <ul class="pagination mb-0">
+                                                    <li class="page-item">
+                                                        <button class="page-link" aria-label="Previous">
+                                                            <i class="fas fa-chevron-left icon-align"></i>
+                                                        </button>
+                                                    </li>
+                                                    <li class="page-item no-border d-flex justify-content-center"
+                                                        style="padding-left: 10px; padding-right: 10px;">
+                                                        <span class="page-text">1 / 10</span>
+                                                    </li>
+                                                    <li class="page-item">
+                                                        <button class="page-link" aria-label="Next">
+                                                            <i class="fas fa-chevron-right icon-align"></i>
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
