@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const clickButton = () => {
+            fetch('http://localhost:5173/api/User/GetAllUsers', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + localStorage.getItem('token')
+                }
+            })
+                .then(res => res.json())
+                .then(console.log);
+
+        }
+    </script>
+</head>
+
+<body>
+    <button class="btn btn-success" onclick="clickButton()">Button</button>
+</body>
+
+</html>
