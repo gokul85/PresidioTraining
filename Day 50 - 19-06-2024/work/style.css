@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+}
+
+.main-div {
+    height: calc(100% - 76px);
+}
+
+.navbar {
+    background-color: rgb(190 202 213) !important;
+}
+
+.nav-link {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+#navbarNav {
+    justify-content: end;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
