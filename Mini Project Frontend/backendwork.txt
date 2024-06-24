@@ -1,0 +1,5 @@
+Add Enpoints to get the counts for admin dashboard
+Write a api endpoint to check for role
+Verify Product already Exist by name and work on SerialNumber error in add product and Policies validation too
+Verify the serialnumber update made stock update
+Update the order total automatic
