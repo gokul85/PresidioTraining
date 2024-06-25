@@ -41,6 +41,10 @@ body {
     #toast-container {
         left: 10px;
     }
+
+    .navbar-brand {
+        font-size: 0.8rem;
+    }
 }
 
 #wrapper {
@@ -57,12 +61,12 @@ body {
     transition: all 0.3s;
     position: relative;
     z-index: 1000;
+    margin-top: 56px;
 }
 
 #sidebar-wrapper .nav {
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
 }
 
 #sidebar-wrapper .nav h5 {
@@ -72,7 +76,7 @@ body {
 }
 
 #sidebar-wrapper .nav-link {
-    padding: 10px 15px;
+    padding: 5px 15px;
     margin: 2px 0;
     color: rgb(150, 150, 150);
     text-decoration: none;
@@ -94,7 +98,6 @@ body {
     width: 100%;
     overflow-y: auto;
     padding-top: 56px;
-    /* Height of the fixed navbar */
 }
 
 #wrapper.toggled #sidebar-wrapper {
