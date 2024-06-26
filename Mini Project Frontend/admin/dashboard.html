@@ -11,17 +11,19 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/dashboard.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        const headers = {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        };
+        document.addEventListener('DOMContentLoaded', async (event) => {
             const token = localStorage.getItem('token');
-            const role = localStorage.getItem('role');
 
             if (!token) {
                 window.location.href = '/login.html';
                 return;
             }
-
+            const roleres = await fetch("http://localhost:5173/api/User/VerifyRole", { headers: headers });
+            const role = await roleres.text();
             if (role !== 'Admin') {
                 window.location.href = '/index.html';
             }
@@ -36,10 +38,6 @@
                 orders: 'http://localhost:5173/api/Order/GetAllOrdersCount',
                 returnRequests: 'http://localhost:5173/api/ReturnRequest/GetAllReturnRequestsCount',
                 users: 'http://localhost:5173/api/User/GetAllUsersCount'
-            };
-
-            const headers = {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
             };
 
             try {
@@ -120,6 +118,8 @@
                 <a class="nav-link" href="update-serial-number.html">Update Serial Number</a>
                 <a class="nav-link" href="close-return-request.html">Close Return Request</a>
                 <a class="nav-link" href="technical-review.html">Technical Review</a>
+                <a class="nav-link logout-link" onclick="logout()"><i
+                        class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
             </nav>
         </div>
         <div id="page-content-wrapper">
@@ -198,6 +198,7 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script>
         document.getElementById("menu-toggle").addEventListener("click", function () {
             document.getElementById("wrapper").classList.toggle("toggled");

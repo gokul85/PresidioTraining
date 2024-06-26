@@ -18,3 +18,9 @@ function showToast(message, type) {
         }, 300);
     }, 3000);
 }
+
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('cart');
+    window.location.href = "/login.html";
+}

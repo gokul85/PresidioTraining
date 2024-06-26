@@ -11,6 +11,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="assets/css/view-product.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', async (event) => {
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                window.location.href = '/login.html';
+                return;
+            }
+            const roleres = await fetch("http://localhost:5173/api/User/VerifyRole", { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') } });
+            const role = await roleres.text();
+            if (role !== 'Admin') {
+                window.location.href = '/index.html';
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -28,6 +43,8 @@
                 <a class="nav-link" href="update-serial-number.html">Update Serial Number</a>
                 <a class="nav-link" href="close-return-request.html">Close Return Request</a>
                 <a class="nav-link" href="technical-review.html">Technical Review</a>
+                <a class="nav-link logout-link" onclick="logout()"><i
+                        class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
             </nav>
         </div>
         <div id="page-content-wrapper">
@@ -126,7 +143,6 @@
                 });
                 if (!ordersResponse.ok) throw new Error('Failed to fetch orders');
                 const orders = await ordersResponse.json();
-
                 const ordersBody = document.getElementById('orders-body');
                 ordersBody.innerHTML = '';
                 orders.forEach(order => {
@@ -174,7 +190,6 @@
                     const orderId = button.data('orderid');
                     const modal = $(this);
                     modal.find('.modal-title').text('Order Details');
-                    console.log(orderId);
                     try {
                         const orderDetailsResponse = await fetch(`http://localhost:5173/api/Order/GetOrder?orderId=${orderId}`, {
                             headers: {
@@ -184,7 +199,6 @@
                         });
                         if (!orderDetailsResponse.ok) throw new Error('Failed to fetch order details');
                         const orderDetails = await orderDetailsResponse.json();
-                        console.log(orderDetails);
                         const modalBody = document.getElementById('orderDetailsModalBody');
                         modalBody.innerHTML = `
                             <div class="mb-3"><strong>Order ID:</strong> ${orderDetails.orderId}</div>

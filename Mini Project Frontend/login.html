@@ -7,10 +7,10 @@
     <title>Login</title>
     <link rel="stylesheet" href="./assets/css/login.css">
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', async (event) => {
             const token = localStorage.getItem('token');
-            const role = localStorage.getItem('role');
-            console.log(token)
+            const roleres = await fetch("http://localhost:5173/api/User/VerifyRole", { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') } });
+            const role = await roleres.text();
             if (token != null || token != "") {
                 if (role === 'Admin') {
                     window.location.href = '/admin/dashboard.html';
@@ -45,13 +45,14 @@
                 <a href="#">Forgot password?</a>
             </div>
             <div class="register-link">
-                <a href="#">New User?, Register Here</a>
+                <a href="/register.html">New User?, Register Here</a>
             </div>
         </div>
     </div>
     <div id="toast-container"></div>
 
     <script src="./assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         async function login() {
             const username = document.getElementById('username').value;
@@ -77,7 +78,6 @@
                 }
                 const data = await response.json();
                 localStorage.setItem('token', data.token);
-                localStorage.setItem('role', data.role);
                 showToast('Login successful!', 'success');
                 if (data.role === "Admin") {
                     window.location.href = '/admin/dashboard.html';
@@ -88,6 +88,7 @@
                 showToast('Login failed: ' + error.message, 'error');
             }
         }
+
     </script>
 </body>
 

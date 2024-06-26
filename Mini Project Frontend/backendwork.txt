@@ -1,6 +1,6 @@
-Add Enpoints to get the counts for admin dashboard
-Write a api endpoint to check for role
-Verify Product already Exist by name and work on SerialNumber error in add product and Policies validation too
-Verify the serialnumber update made stock update
-Update the order total automatic
-Transaction is null so while getting the all orders and instead of userid give name or username and along with that the product of ordered product needed
+Add Enpoints to get the counts for admin dashboard - Done
+Write a api endpoint to check for role - Done
+Verify Product already Exist by name and work on SerialNumber error in add product and Policies validation too same policy again and again - Done
+Verify the serialnumber update made stock update - Done
+Update the order total automatic - Done
+Transaction is null so while getting the all orders and instead of userid give name or username and along with that the product of ordered product needed - Done

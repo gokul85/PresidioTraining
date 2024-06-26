@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="./assets/css/allproducts.css">
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', async (event) => {
             const token = localStorage.getItem('token');
-            const role = localStorage.getItem('role');
 
             if (!token) {
                 window.location.href = '/login.html';
                 return;
             }
-
+            const roleres = await fetch("http://localhost:5173/api/User/VerifyRole", { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') } });
+            const role = await roleres.text();
             if (role !== 'Admin') {
                 window.location.href = '/index.html';
             }
@@ -43,6 +43,8 @@
                 <a class="nav-link" href="update-serial-number.html">Update Serial Number</a>
                 <a class="nav-link" href="close-return-request.html">Close Return Request</a>
                 <a class="nav-link" href="technical-review.html">Technical Review</a>
+                <a class="nav-link logout-link" onclick="logout()"><i
+                        class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
             </nav>
         </div>
         <div id="page-content-wrapper">
@@ -121,14 +123,14 @@
             document.getElementById("wrapper").classList.toggle("toggled");
         });
 
-        const apiUrl = 'http://localhost:5173/api/Product/GetAllProducts';
+
         let products = [];
         let filteredProducts = [];
         let currentPage = 1;
         const limit = 30;
 
         async function fetchProducts() {
-            const response = await fetch(apiUrl);
+            const response = await fetch('http://localhost:5173/api/Product/GetAllProducts');
             const data = await response.json();
             products = data;
             filteredProducts = products;
@@ -207,6 +209,7 @@
                     fetchProducts();
                     const editModal = bootstrap.Modal.getInstance(document.getElementById('editModal'));
                     editModal.hide();
+                    window.location.reload();
                 });
         }
 

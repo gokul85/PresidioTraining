@@ -7,10 +7,10 @@
     <title>Register</title>
     <link rel="stylesheet" href="./assets/css/register.css">
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', async (event) => {
             const token = localStorage.getItem('token');
-            const role = localStorage.getItem('role');
-            console.log(token)
+            const roleres = await fetch("http://localhost:5173/api/User/VerifyRole", { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') } });
+            const role = await roleres.text();
             if (token != null || token != "") {
                 if (role === 'Admin') {
                     window.location.href = '/admin/dashboard.html';
@@ -66,7 +66,7 @@
             </div>
             <button class="btn register-btn" onclick="register()">REGISTER</button>
             <div class="login-link">
-                <a href="#">Already a User?, Login Here</a>
+                <a href="/login.html">Already a User?, Login Here</a>
             </div>
         </div>
     </div>

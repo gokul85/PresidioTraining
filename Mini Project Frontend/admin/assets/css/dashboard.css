@@ -164,3 +164,7 @@ body {
     font-weight: bold;
     text-align: right;
 }
+
+.logout-link {
+    cursor: pointer;
+}
