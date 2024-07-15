@@ -8,7 +8,7 @@ namespace BankingApp.Models
 {
     public class Transaction
     {
-        public string Type { get; set; }
+        public string Type { get; set; } //Withdraw, Deposit
         public double Amount { get; set; }
         public string Description { get; set; }
         public DateTime Timestamp { get; set; }
