@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeRequestTrackerAPI.Migrations
 {
     [DbContext(typeof(RequestTrackerContext))]
-    [Migration("20240517062427_request-all-models-added")]
-    partial class requestallmodelsadded
+    [Migration("20240716045722_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,24 +53,6 @@ namespace EmployeeRequestTrackerAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 101,
-                            DateOfBirth = new DateTime(2000, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Image = "",
-                            Name = "Ramu",
-                            Phone = "9876543321"
-                        },
-                        new
-                        {
-                            Id = 102,
-                            DateOfBirth = new DateTime(2002, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Image = "",
-                            Name = "Somu",
-                            Phone = "9988776655"
-                        });
                 });
 
             modelBuilder.Entity("EmployeeRequestTrackerAPI.Models.Request", b =>
