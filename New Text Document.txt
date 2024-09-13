@@ -1,0 +1,53 @@
+"RabbitMQ": {
+  "Host": "localhost",
+  "UserName": "",
+  "Password": "",
+  "ProfileQueueName": "matrimonial-profile-queue",
+  "PaymentQueueName": "matrimonial-payment-queue",
+  "AuthQueueName": "matrimonial-auth-queue"
+}
+
+this to be provided in k8s secrets for access
+
+7a9f3b4e3a7d9e14b4c8d1d3e5f0d3e2e4f1c9b1d7b4c8e3f1b6e3a4b9e6c8a5d7f1c9d8b1e2a3f4c7d6e1b9f8a7c5d4e3f1b6a7c8d9e0f1a2b3c4d5e6f7a8c9e
+
+
+Configure ms sql - done
+rabbitmq - done
+keyvault - https://matrimonial-app-vault.vault.azure.net/
+services - keyvaulturi(ConnectionString)
+gateway
+frontend
+
+
+create aks
+take control in cli
+create pvc with azurefile as sc
+deploy mssql and rabbitmq
+
+before auth services and all
+az aks update -g rg-Gokul -n capstoneproject --enable-managed-identity
+az keyvault set-policy -n matrimonialapp --secret-permissions get --spn 2256bf2f-630d-4f29-8d8b-d8eb52369b66
+
+gokulcapstoneproject
+
+matrimonialapp
+
+kubectl create secret generic mssql --from-literal=SA_PASSWORD=Password@123
+
+Server=matrimonialapp.database.windows.net;Database=AuthService;User Id=azureuser;Password=Passw0rd!;TrustServerCertificate=True;
+
+Server=tcp:matrimonialapp.database.windows.net,1433;Initial Catalog=AuthService;Persist Security Info=False;User ID=azureuser;Password=SqlPassw0rd!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+Server=mssql-clusterip-srv;Database=PremiumService;User ID=sa;Password=Password@123;TrustServerCertificate=True;
+
+2256bf2f-630d-4f29-8d8b-d8eb52369b66 - presidio portal
+
+5f44f8a6-6983-4019-9236-fcda134f333d - mine
+
+
+
+kubectl rollout restart deployment authservice-depl
+
+
+az aks get-credentials --resource-group rg-Gokul --name capstoneproject --overwrite-existing
